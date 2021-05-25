@@ -11,7 +11,6 @@ enum APIError: LocalizedError {
     case unknownError
     case responseError(Int)
     
-    
     var errorDescription: String? {
         switch self {
         case .unknownError:

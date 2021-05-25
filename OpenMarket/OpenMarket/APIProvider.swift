@@ -16,7 +16,8 @@ class APIProvider {
 
     func getViewArticleList<T: Decodable>(completion: @escaping (Result<T, Error>) -> Void) {
         let request = URLRequest(url: MakeURL.viewArticleList(1).url) // urlRequest 생성
-
+        let detailRequest = URLRequest(url: MakeURL.viewArticle(1).url)
+        
         let task: URLSessionDataTask = session.dataTask(with: request) { data, urlResponse, error in
                 guard let response = urlResponse as? HTTPURLResponse,
                       (200...399).contains(response.statusCode) else {

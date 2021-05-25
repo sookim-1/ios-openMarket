@@ -31,12 +31,12 @@ class MockURLSession: URLSessionProtocol {
                   completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
 
         // 성공시 callback 으로 넘겨줄 response
-        let successResponse = HTTPURLResponse(url: MakeURL.viewArticleList(1).url,
+        let successResponse = HTTPURLResponse(url: MakeURL.viewArticle(1).url,
                                               statusCode: 200,
                                               httpVersion: "2",
                                               headerFields: nil)
         // 실패시 callback 으로 넘겨줄 response
-        let failureResponse = HTTPURLResponse(url: MakeURL.viewArticleList(1).url,
+        let failureResponse = HTTPURLResponse(url: MakeURL.viewArticle(1).url,
                                               statusCode: 410,
                                               httpVersion: "2",
                                               headerFields: nil)
@@ -48,7 +48,7 @@ class MockURLSession: URLSessionProtocol {
             if self.makeRequestFail {
                 completionHandler(nil, failureResponse, nil)
             } else {
-                guard let itemsData = NSDataAsset(name: "Items") else { return }
+                guard let itemsData = NSDataAsset(name: "Item") else { return }
                 completionHandler(itemsData.data, successResponse, nil)
             }
         }

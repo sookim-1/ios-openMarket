@@ -18,15 +18,15 @@ class OpenMarketTests: XCTestCase {
 
        func test_fetchRandomJoke() {
            let expectation = XCTestExpectation()
-           guard let itemsData = NSDataAsset(name: "Items") else { return }
-           let response = try? JSONDecoder().decode(EntireArticle.self,
+           guard let itemsData = NSDataAsset(name: "Item") else { return }
+           let response = try? JSONDecoder().decode(DetailArticle.self,
                                                     from: itemsData.data)
 
-        sut.getViewArticleList { (result: Result<EntireArticle, Error>) in
+        sut.getViewArticleList { (result: Result<DetailArticle, Error>) in
                switch result {
                case .success(let joke):
-                XCTAssertEqual(joke.page, response?.page)
-                XCTAssertEqual(joke.items.first?.title, response?.items.first?.title)
+                XCTAssertEqual(joke.title, response?.title)
+                XCTAssertEqual(joke.currency, response?.currency)
                case .failure:
                    XCTFail()
                }
@@ -40,7 +40,7 @@ class OpenMarketTests: XCTestCase {
            sut = .init(session: MockURLSession(makeRequestFail: true))
            let expectation = XCTestExpectation()
 
-           sut.getViewArticleList { (result: Result<EntireArticle, Error>) in
+           sut.getViewArticleList { (result: Result<DetailArticle, Error>) in
                switch result {
                case .success:
                    XCTFail()
