@@ -9,8 +9,8 @@ import Foundation
 
 class APIProvider {
 
-    let session: URLSessionProtocol
-    init(session: URLSessionProtocol = URLSession.shared) {
+    let session: URLSession
+    init(session: URLSession = URLSession.shared) {
         self.session = session
     }
 

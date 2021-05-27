@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		761F41F6265E33FA001834B4 /* URLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F41F5265E33FA001834B4 /* URLProtocol.swift */; };
 		762DDC1D265CE855009FE24B /* JsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762DDC1C265CE855009FE24B /* JsonModel.swift */; };
 		762DDC1F265CE8AE009FE24B /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762DDC1E265CE8AE009FE24B /* APIError.swift */; };
 		762DDC21265CE917009FE24B /* MakeURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762DDC20265CE917009FE24B /* MakeURL.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		761F41F5265E33FA001834B4 /* URLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocol.swift; sourceTree = "<group>"; };
 		762DDC1C265CE855009FE24B /* JsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonModel.swift; sourceTree = "<group>"; };
 		762DDC1E265CE8AE009FE24B /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		762DDC20265CE917009FE24B /* MakeURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeURL.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				762DDC22265CEA77009FE24B /* URLSessionProtocol.swift */,
 				762DDC24265CEAAC009FE24B /* APIProvider.swift */,
 				762DDC26265CEC93009FE24B /* MockURLSession.swift */,
+				761F41F5265E33FA001834B4 /* URLProtocol.swift */,
 			);
 			path = OpenMarket;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				C70FB0FB25BEF61C00C9924E /* AppDelegate.swift in Sources */,
 				762DDC1F265CE8AE009FE24B /* APIError.swift in Sources */,
 				762DDC27265CEC93009FE24B /* MockURLSession.swift in Sources */,
+				761F41F6265E33FA001834B4 /* URLProtocol.swift in Sources */,
 				C70FB0FD25BEF61C00C9924E /* SceneDelegate.swift in Sources */,
 				762DDC21265CE917009FE24B /* MakeURL.swift in Sources */,
 			);
