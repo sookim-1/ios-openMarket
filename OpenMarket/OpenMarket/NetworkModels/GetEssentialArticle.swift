@@ -29,8 +29,11 @@ class GetEssentialArticle {
             
             guard let resultData = data else { return }
             guard let final = self.decodeData(type: T.self, data: resultData) else { return }
-                
-            completion(.success(final))
+            
+            DispatchQueue.main.async {
+                completion(.success(final))
+            }
+            
         }.resume()
     }
     
