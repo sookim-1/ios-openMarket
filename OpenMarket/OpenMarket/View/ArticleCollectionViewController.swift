@@ -1,5 +1,5 @@
 //
-//  ArticleTableViewController.swift
+//  ArticleCollectionViewController.swift
 //  OpenMarket
 //
 //  Created by sookim on 2021/05/27.
@@ -7,8 +7,7 @@
 
 import UIKit
 
-class ArticleTableViewController: UIViewController {
-    
+class ArticleCollectionViewController: UIViewController {
     let getEssentialArticle = GetEssentialArticle(urlProcess: URLProcess())
     let urlProcess = URLProcess()
     
@@ -16,21 +15,20 @@ class ArticleTableViewController: UIViewController {
 
 
     }
+}
+
+extension ArticleCollectionViewController: UICollectionViewDelegate {
     
 }
 
-extension ArticleTableViewController: UITableViewDelegate {
-    
-}
-
-extension ArticleTableViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+extension ArticleCollectionViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 19
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleTableViewCell", for: indexPath) as? ArticleTableViewCell else {
-            return UITableViewCell()
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ArticleCollectionViewCell", for: indexPath) as? ArticleCollectionViewCell else {
+            return UICollectionViewCell()
         }
         
         let baseURL = urlProcess.setBaseURL(urlString: "https://camp-open-market-2.herokuapp.com/")!
@@ -65,5 +63,19 @@ extension ArticleTableViewController: UITableViewDataSource {
         return cell
     }
     
+    
+}
+
+extension ArticleCollectionViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let itemSpacing: CGFloat = 10
+        let textAreaHeight: CGFloat = 65
+        
+        let width: CGFloat = (collectionView.bounds.width - itemSpacing)/2
+        let height: CGFloat = width * 10/7 + textAreaHeight
+        
+        return CGSize(width: width, height: height)
+    }
     
 }
